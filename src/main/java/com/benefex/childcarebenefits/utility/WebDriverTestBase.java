@@ -29,6 +29,19 @@ public class WebDriverTestBase {
 		System.out.println("END OF TEST CASE IN - " + this.getClass().getSimpleName());
 		helper.close();
 	}
+	
+	/*
+     * Method to log into therewardhub website
+     */
+    protected void logIntoTheRewardHub(String username, String password) {
+    	helper.navigateToWebSite(driver);
+    	pages.logInToRewardHubPage().enterUserName(username);
+    	pages.logInToRewardHubPage().enterPassword(password);
+    	pages.logInToRewardHubPage().clickOnSignIn();
+    	
+    }
+	
+	
 
 	public String getSiteURL() {
 		return TestHelper.SITE_URL;

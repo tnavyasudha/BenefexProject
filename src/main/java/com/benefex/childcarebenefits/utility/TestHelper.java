@@ -13,6 +13,7 @@ public class TestHelper {
 	public static final String SITE_URL = "https://www.therewardhub.com/benefexdemo/";
 	private WebDriver driver;
 	private StringBuffer verificationErrors = new StringBuffer();
+	String baseURL = "https://www.therewardhub.com/benefexdemo/";
 
 	public WebDriver init(String baseURL, String testMethodName) {
 		// Create a new instance of the FF driver
@@ -37,6 +38,11 @@ public class TestHelper {
             Assert.fail(verificationErrorString);
         }
         
+    }
+	
+	public void navigateToWebSite(WebDriver driver) {
+        WebDriverTestBase webBase = new WebDriverTestBase();
+        driver.navigate().to(baseURL);
     }
 	
 	public <T> void verifyThat(String reason, T actual, Matcher<? super T> matcher) {
